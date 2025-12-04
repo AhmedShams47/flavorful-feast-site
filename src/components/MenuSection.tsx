@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { menuData, MenuCategory } from "@/data/menuData";
+import { menuData } from "@/data/menuData";
 import { cn } from "@/lib/utils";
+import ProductCard from "./ProductCard";
 
 const MenuSection = () => {
   const [activeCategory, setActiveCategory] = useState<string>("pizza");
@@ -11,6 +12,7 @@ const MenuSection = () => {
     <section id="menu" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <p className="font-script text-primary text-2xl mb-2">Delicious Food</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
             Our <span className="text-primary">Menu</span>
           </h2>
@@ -20,7 +22,7 @@ const MenuSection = () => {
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12">
           {menuData.map((category) => (
             <button
               key={category.id}
@@ -29,7 +31,7 @@ const MenuSection = () => {
                 "px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold transition-all text-sm md:text-base",
                 activeCategory === category.id
                   ? "bg-primary text-primary-foreground glow-primary"
-                  : "bg-card text-foreground hover:bg-muted"
+                  : "bg-card text-muted-foreground hover:text-foreground border border-border"
               )}
             >
               {category.name}
@@ -37,52 +39,23 @@ const MenuSection = () => {
           ))}
         </div>
 
-        {/* Menu Items */}
+        {/* Menu Items Grid */}
         {activeMenu && (
-          <div className="animate-fade-in">
+          <div>
             {activeMenu.description && (
-              <p className="text-center text-secondary font-medium mb-8 text-sm md:text-base">
+              <p className="text-center text-primary/80 font-medium mb-8 text-sm md:text-base">
                 {activeMenu.description}
               </p>
             )}
 
-            <div className="grid gap-4 md:gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {activeMenu.items.map((item, index) => (
-                <div
+                <ProductCard
                   key={index}
-                  className="bg-card rounded-xl p-4 md:p-6 border border-border hover:border-primary/50 transition-all group"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-                    <div className="flex-1">
-                      <h3 className="text-lg md:text-xl font-display font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {item.name}
-                      </h3>
-                      {item.description && (
-                        <p className="text-muted-foreground text-sm mt-1">
-                          {item.description}
-                        </p>
-                      )}
-                    </div>
-                    <div className="flex flex-wrap gap-2 md:gap-3">
-                      {item.prices.map((price, priceIndex) => (
-                        <div
-                          key={priceIndex}
-                          className="bg-muted px-3 py-1.5 rounded-lg text-center min-w-[70px]"
-                        >
-                          {price.size && (
-                            <span className="text-xs text-muted-foreground block">
-                              {price.size}
-                            </span>
-                          )}
-                          <span className="text-primary font-bold">
-                            ${price.price.toFixed(2)}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                  item={item}
+                  category={activeMenu.id}
+                  index={index}
+                />
               ))}
             </div>
           </div>
@@ -90,10 +63,15 @@ const MenuSection = () => {
 
         {/* Toppings Note */}
         {activeCategory === "pizza" && (
-          <div className="mt-12 text-center">
-            <p className="text-sm text-muted-foreground">
-              <span className="text-secondary font-semibold">Each Additional Topping:</span>{" "}
-              S: $1.79 | M: $1.89 | L: $1.99 | XL: $2.99
+          <div className="mt-12 text-center bg-card rounded-2xl p-6 border border-border max-w-2xl mx-auto">
+            <h3 className="font-display text-lg font-semibold text-foreground mb-2">
+              Additional Toppings
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              <span className="text-primary font-semibold">S:</span> $1.79 |{" "}
+              <span className="text-primary font-semibold">M:</span> $1.89 |{" "}
+              <span className="text-primary font-semibold">L:</span> $1.99 |{" "}
+              <span className="text-primary font-semibold">XL:</span> $2.99
             </p>
           </div>
         )}
