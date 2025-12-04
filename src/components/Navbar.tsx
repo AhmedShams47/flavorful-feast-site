@@ -1,63 +1,68 @@
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
-import logo from "@/assets/logo.jpg";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Menu", href: "#menu" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "ABOUT US", href: "#about" },
+  { name: "HOME", href: "#home", active: true },
+  { name: "MENU", href: "#menu" },
+  { name: "CONTACT US", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <a href="#home" className="flex items-center gap-3">
-            <img src={logo} alt="Pizza House" className="h-14 w-auto" />
-          </a>
-
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-4xl">
+      <div className="bg-muted/80 backdrop-blur-md rounded-full px-2 py-2">
+        <div className="flex items-center justify-between">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center justify-center gap-1 flex-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground/80 hover:text-primary transition-colors font-medium"
+                className={`px-6 py-2 rounded-full text-sm font-medium tracking-wide transition-all ${
+                  link.active
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.name}
               </a>
             ))}
             <a
               href="tel:+1234567890"
-              className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+              className="ml-2 border border-primary text-primary px-6 py-2 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all"
             >
-              <Phone className="w-4 h-4" />
-              Order Now
+              ORDER NOW
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground p-2"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center justify-between w-full px-4">
+            <span className="text-foreground font-display text-lg">Pizza House</span>
+            <button
+              className="text-foreground p-2"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-6 animate-fade-in">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 px-4 animate-fade-in">
+            <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-foreground/80 hover:text-primary transition-colors font-medium py-2"
+                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-all text-center ${
+                    link.active
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -65,10 +70,9 @@ const Navbar = () => {
               ))}
               <a
                 href="tel:+1234567890"
-                className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-lg font-semibold"
+                className="mt-2 border border-primary text-primary px-4 py-3 rounded-lg text-sm font-semibold text-center hover:bg-primary hover:text-primary-foreground transition-all"
               >
-                <Phone className="w-4 h-4" />
-                Order Now
+                ORDER NOW
               </a>
             </div>
           </div>
