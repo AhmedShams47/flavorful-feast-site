@@ -3,8 +3,8 @@ import { ShoppingCart } from "lucide-react";
 import { MenuItem } from "@/data/menuData";
 import OrderModal from "./OrderModal";
 
-// Pizza images for different items
-const pizzaImages: Record<string, string> = {
+// Food images for different items
+const foodImages: Record<string, string> = {
   default: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80",
   cheese: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80",
   pepperoni: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&q=80",
@@ -12,33 +12,45 @@ const pizzaImages: Record<string, string> = {
   meat: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80",
   hawaiian: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=80",
   calzone: "https://images.unsplash.com/photo-1536964549204-cce9eab227bd?w=400&q=80",
+  gyro: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400&q=80",
   sandwich: "https://images.unsplash.com/photo-1553909489-cd47e0907980?w=400&q=80",
+  burger: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80",
   pasta: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&q=80",
+  lasagna: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&q=80",
+  alfredo: "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=400&q=80",
   salad: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80",
   wings: "https://images.unsplash.com/photo-1608039755401-742074f0548d?w=400&q=80",
   fries: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&q=80",
   drink: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400&q=80",
   dessert: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&q=80",
+  cheesecake: "https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400&q=80",
+  chocolate: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80",
 };
 
 const getItemImage = (name: string, category: string): string => {
   const nameLower = name.toLowerCase();
   
-  if (nameLower.includes("cheese") && !nameLower.includes("burger")) return pizzaImages.cheese;
-  if (nameLower.includes("pepperoni")) return pizzaImages.pepperoni;
-  if (nameLower.includes("veggie") || nameLower.includes("vegetable")) return pizzaImages.veggie;
-  if (nameLower.includes("meat") || nameLower.includes("bacon")) return pizzaImages.meat;
-  if (nameLower.includes("hawaiian")) return pizzaImages.hawaiian;
-  if (category === "calzone") return pizzaImages.calzone;
-  if (category === "sandwiches") return pizzaImages.sandwich;
-  if (category === "pasta") return pizzaImages.pasta;
-  if (nameLower.includes("salad")) return pizzaImages.salad;
-  if (nameLower.includes("wing")) return pizzaImages.wings;
-  if (nameLower.includes("fries") || nameLower.includes("tots")) return pizzaImages.fries;
-  if (category === "drinks") return pizzaImages.drink;
-  if (category === "desserts") return pizzaImages.dessert;
+  if (nameLower.includes("cheese") && !nameLower.includes("burger") && category === "pizza") return foodImages.cheese;
+  if (nameLower.includes("pepperoni")) return foodImages.pepperoni;
+  if (nameLower.includes("veggie") || nameLower.includes("vegetable")) return foodImages.veggie;
+  if (nameLower.includes("meat") || nameLower.includes("bacon")) return foodImages.meat;
+  if (nameLower.includes("hawaiian")) return foodImages.hawaiian;
+  if (nameLower.includes("gyro")) return foodImages.gyro;
+  if (nameLower.includes("burger")) return foodImages.burger;
+  if (nameLower.includes("lasagna")) return foodImages.lasagna;
+  if (nameLower.includes("alfredo") || nameLower.includes("carbonara")) return foodImages.alfredo;
+  if (nameLower.includes("cheesecake")) return foodImages.cheesecake;
+  if (nameLower.includes("chocolate")) return foodImages.chocolate;
+  if (category === "calzone") return foodImages.calzone;
+  if (category === "sandwiches") return foodImages.sandwich;
+  if (category === "pasta") return foodImages.pasta;
+  if (nameLower.includes("salad")) return foodImages.salad;
+  if (nameLower.includes("wing")) return foodImages.wings;
+  if (nameLower.includes("fries") || nameLower.includes("tots")) return foodImages.fries;
+  if (category === "drinks") return foodImages.drink;
+  if (category === "desserts") return foodImages.dessert;
   
-  return pizzaImages.default;
+  return foodImages.default;
 };
 
 interface ProductCardProps {
@@ -50,53 +62,62 @@ interface ProductCardProps {
 const ProductCard = ({ item, category, index }: ProductCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSize, setSelectedSize] = useState(item.prices[0]);
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
 
   const imageUrl = getItemImage(item.name, category);
+
+  const handleAddToCart = () => {
+    setIsAddingToCart(true);
+    setTimeout(() => {
+      setIsAddingToCart(false);
+      setIsModalOpen(true);
+    }, 200);
+  };
 
   return (
     <>
       <div
-        className="bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-all group animate-fade-in"
+        className="bg-card rounded-2xl overflow-hidden border border-border/50 card-hover group animate-fade-in"
         style={{ animationDelay: `${index * 50}ms` }}
       >
         {/* Image */}
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-44 overflow-hidden">
           <img
             src={imageUrl}
             alt={item.name}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
           
           {/* Price Badge */}
-          <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full font-bold text-sm">
+          <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-4 py-1.5 rounded-full font-bold text-lg shadow-lg">
             ${selectedSize.price.toFixed(2)}
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-4">
-          <h3 className="text-lg font-display font-semibold text-foreground mb-1 line-clamp-1">
+        <div className="p-5">
+          <h3 className="text-xl font-display text-primary mb-2 tracking-wide line-clamp-1">
             {item.name}
           </h3>
           
           {item.description && (
-            <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
+            <p className="text-muted-foreground text-sm mb-4 line-clamp-2 leading-relaxed">
               {item.description}
             </p>
           )}
 
           {/* Size Selector */}
           {item.prices.length > 1 && (
-            <div className="flex flex-wrap gap-1 mb-3">
+            <div className="flex flex-wrap gap-2 mb-4">
               {item.prices.map((price, idx) => (
                 <button
                   key={idx}
                   onClick={() => setSelectedSize(price)}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                  className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all ${
                     selectedSize === price
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                      ? "bg-primary text-primary-foreground shadow-md"
+                      : "bg-secondary/70 text-foreground/80 hover:bg-secondary border border-border/50"
                   }`}
                 >
                   {price.size || "Regular"}
@@ -107,11 +128,13 @@ const ProductCard = ({ item, category, index }: ProductCardProps) => {
 
           {/* Order Button */}
           <button
-            onClick={() => setIsModalOpen(true)}
-            className="w-full bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground py-2.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all group/btn"
+            onClick={handleAddToCart}
+            className={`w-full bg-primary text-primary-foreground py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 ${
+              isAddingToCart ? "scale-95" : ""
+            }`}
           >
-            <ShoppingCart className="w-4 h-4" />
-            Order Now
+            <ShoppingCart className="w-5 h-5" />
+            Add to Cart
           </button>
         </div>
       </div>
