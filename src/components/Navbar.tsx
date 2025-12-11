@@ -1,76 +1,89 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
+import chefLogo from "@/assets/chef-logo.png";
 
 const navLinks = [
-  { name: "ABOUT US", href: "#about" },
-  { name: "HOME", href: "#home", active: true },
-  { name: "MENU", href: "#menu" },
-  { name: "CONTACT US", href: "#contact" },
+  { name: "Home", href: "#home" },
+  { name: "Menu", href: "#menu" },
+  { name: "About Us", href: "#about" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [cartShake, setCartShake] = useState(false);
+
+  const handleOrderClick = () => {
+    setCartShake(true);
+    setTimeout(() => setCartShake(false), 500);
+  };
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-4xl">
-      <div className="bg-muted/80 backdrop-blur-md rounded-full px-2 py-2">
-        <div className="flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-background/95 to-background/80 backdrop-blur-md border-b border-border/30">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <a href="#home" className="flex items-center gap-3">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-red-700 to-red-900 p-1 shadow-lg animate-pulse-glow">
+              <img
+                src={chefLogo}
+                alt="Pizza House Chef"
+                className="w-full h-full object-contain rounded-full bg-red-800"
+              />
+            </div>
+            <span className="font-display text-2xl md:text-3xl text-primary tracking-wider">
+              Pizza House
+            </span>
+          </a>
+
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center gap-1 flex-1">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-6 py-2 rounded-full text-sm font-medium tracking-wide transition-all ${
-                  link.active
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className="text-foreground/90 hover:text-primary font-medium text-lg transition-colors relative group"
               >
                 {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
               </a>
             ))}
             <a
-              href="tel:+1234567890"
-              className="ml-2 border border-primary text-primary px-6 py-2 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all"
+              href="tel:+14052851616"
+              onClick={handleOrderClick}
+              className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold text-lg hover:scale-105 transition-all glow-primary flex items-center gap-2"
             >
+              <ShoppingCart className={`w-5 h-5 ${cartShake ? "animate-cart-shake" : ""}`} />
               ORDER NOW
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center justify-between w-full px-4">
-            <span className="text-foreground font-display text-lg">Pizza House</span>
-            <button
-              className="text-foreground p-2"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+          <button
+            className="md:hidden text-foreground p-2"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 px-4 animate-fade-in">
-            <div className="flex flex-col gap-2">
+          <div className="md:hidden py-6 animate-fade-in border-t border-border/30">
+            <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-all text-center ${
-                    link.active
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                  }`}
+                  className="text-foreground/90 hover:text-primary font-medium text-lg py-2 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </a>
               ))}
               <a
-                href="tel:+1234567890"
-                className="mt-2 border border-primary text-primary px-4 py-3 rounded-lg text-sm font-semibold text-center hover:bg-primary hover:text-primary-foreground transition-all"
+                href="tel:+14052851616"
+                className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-bold text-center text-lg mt-2 glow-primary"
+                onClick={() => setIsOpen(false)}
               >
                 ORDER NOW
               </a>

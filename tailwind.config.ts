@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Playfair Display", "serif"],
+        display: ["Bangers", "cursive"],
         sans: ["Lato", "sans-serif"],
       },
       colors: {
@@ -88,6 +88,10 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "scale-up": {
+          from: { transform: "scale(1)" },
+          to: { transform: "scale(1.05)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -95,6 +99,7 @@ export default {
         "fade-in": "fade-in 0.6s ease-out forwards",
         "slide-in": "slide-in 0.5s ease-out forwards",
         "float": "float 3s ease-in-out infinite",
+        "scale-up": "scale-up 0.2s ease-out forwards",
       },
     },
   },
