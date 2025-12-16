@@ -59,14 +59,30 @@ const Hero = () => {
 
         {/* First Row of Product Cards */}
         <div className="container mx-auto px-4 mb-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {productCards.slice(0, 3).map((product, index) => <div key={product.id} style={{
-            animationDelay: `${0.2 + index * 0.1}s`
-          }} className="group relative bg-white/20 backdrop-blur-md rounded-3xl p-3 shadow-xl border border-white/30 card-hover animate-fade-in text-primary">
-                <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto" style={{ perspective: '1000px' }}>
+            {productCards.slice(0, 3).map((product, index) => (
+              <div 
+                key={product.id} 
+                style={{ animationDelay: `${0.2 + index * 0.1}s` }} 
+                className="group relative animate-fade-in cursor-pointer"
+              >
+                <div className="relative bg-gradient-to-br from-white/25 via-white/15 to-white/5 backdrop-blur-xl rounded-3xl p-3 shadow-2xl border border-white/40 transition-all duration-500 ease-out group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_30px_rgba(250,204,21,0.3)] group-hover:border-primary/50 group-hover:scale-105 group-hover:-translate-y-2" style={{ transformStyle: 'preserve-3d', transform: 'rotateX(0deg) rotateY(0deg)', transition: 'transform 0.5s ease-out, box-shadow 0.5s ease-out' }}>
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="aspect-square rounded-2xl overflow-hidden shadow-inner relative">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-115 group-hover:brightness-110" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                      <p className="text-white font-display text-lg text-center drop-shadow-lg">{product.name}</p>
+                    </div>
+                  </div>
+                  <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/30 via-red-500/20 to-primary/30 blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
                 </div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
 
@@ -81,14 +97,30 @@ const Hero = () => {
 
         {/* Second Row of Product Cards */}
         <div className="container mx-auto px-4 mt-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {productCards.slice(3, 6).map((product, index) => <div key={product.id} className="group relative bg-white/20 backdrop-blur-md rounded-3xl p-3 shadow-xl border border-white/30 card-hover animate-fade-in" style={{
-            animationDelay: `${0.6 + index * 0.1}s`
-          }}>
-                <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto" style={{ perspective: '1000px' }}>
+            {productCards.slice(3, 6).map((product, index) => (
+              <div 
+                key={product.id} 
+                className="group relative animate-fade-in cursor-pointer" 
+                style={{ animationDelay: `${0.6 + index * 0.1}s` }}
+              >
+                <div className="relative bg-gradient-to-br from-white/25 via-white/15 to-white/5 backdrop-blur-xl rounded-3xl p-3 shadow-2xl border border-white/40 transition-all duration-500 ease-out group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_30px_rgba(250,204,21,0.3)] group-hover:border-primary/50 group-hover:scale-105 group-hover:-translate-y-2" style={{ transformStyle: 'preserve-3d', transform: 'rotateX(0deg) rotateY(0deg)', transition: 'transform 0.5s ease-out, box-shadow 0.5s ease-out' }}>
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="aspect-square rounded-2xl overflow-hidden shadow-inner relative">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-115 group-hover:brightness-110" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                      <p className="text-white font-display text-lg text-center drop-shadow-lg">{product.name}</p>
+                    </div>
+                  </div>
+                  <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/30 via-red-500/20 to-primary/30 blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
                 </div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
 
