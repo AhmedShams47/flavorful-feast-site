@@ -189,6 +189,21 @@ html {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
+/* Border slit animation */
+@keyframes borderSlit {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-border-slit {
+  background-size: 200% 100%;
+  animation: borderSlit 3s linear infinite;
+}
+
 /* Cart shake animation */
 @keyframes cart-shake {
   0%, 100% { transform: rotate(0deg); }
