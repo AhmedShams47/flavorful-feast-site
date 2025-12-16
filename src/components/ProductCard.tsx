@@ -25,6 +25,11 @@ const foodImages: Record<string, string> = {
   dessert: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&q=80",
   cheesecake: "https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400&q=80",
   chocolate: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80",
+  icecream: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&q=80",
+  churros: "https://images.unsplash.com/photo-1624371414361-e670edf4898b?w=400&q=80",
+  fruit: "https://images.unsplash.com/photo-1546548970-71785318a17b?w=400&q=80",
+  hotdog: "https://images.unsplash.com/photo-1612392062126-5cc76074df92?w=400&q=80",
+  corn: "https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=400&q=80",
 };
 
 const getItemImage = (name: string, category: string): string => {
@@ -41,6 +46,10 @@ const getItemImage = (name: string, category: string): string => {
   if (nameLower.includes("alfredo") || nameLower.includes("carbonara")) return foodImages.alfredo;
   if (nameLower.includes("cheesecake")) return foodImages.cheesecake;
   if (nameLower.includes("chocolate")) return foodImages.chocolate;
+  if (nameLower.includes("churro")) return foodImages.churros;
+  if (nameLower.includes("fresas") || nameLower.includes("banana") || nameLower.includes("mango") || nameLower.includes("bionico")) return foodImages.fruit;
+  if (nameLower.includes("hot dog")) return foodImages.hotdog;
+  if (nameLower.includes("elote") || nameLower.includes("corn")) return foodImages.corn;
   if (category === "calzone") return foodImages.calzone;
   if (category === "sandwiches") return foodImages.sandwich;
   if (category === "pasta") return foodImages.pasta;
@@ -49,6 +58,7 @@ const getItemImage = (name: string, category: string): string => {
   if (nameLower.includes("fries") || nameLower.includes("tots")) return foodImages.fries;
   if (category === "drinks") return foodImages.drink;
   if (category === "desserts") return foodImages.dessert;
+  if (category === "icecream") return foodImages.icecream;
   
   return foodImages.default;
 };
@@ -61,12 +71,14 @@ interface ProductCardProps {
 
 const ProductCard = ({ item, category, index }: ProductCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(item.prices[0]);
+  const hasPrice = item.prices.length > 0;
+  const [selectedSize, setSelectedSize] = useState(hasPrice ? item.prices[0] : null);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
 
   const imageUrl = getItemImage(item.name, category);
 
   const handleAddToCart = () => {
+    if (!hasPrice) return;
     setIsAddingToCart(true);
     setTimeout(() => {
       setIsAddingToCart(false);
@@ -90,8 +102,8 @@ const ProductCard = ({ item, category, index }: ProductCardProps) => {
           <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
           
           {/* Price Badge */}
-          <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-4 py-1.5 rounded-full font-bold text-lg shadow-lg">
-            ${selectedSize.price.toFixed(2)}
+          <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-4 py-1.5 rounded-full font-bold text-sm shadow-lg">
+            {hasPrice && selectedSize ? `$${selectedSize.price.toFixed(2)}` : "Visit Store"}
           </div>
         </div>
 
@@ -127,24 +139,32 @@ const ProductCard = ({ item, category, index }: ProductCardProps) => {
           )}
 
           {/* Order Button */}
-          <button
-            onClick={handleAddToCart}
-            className={`w-full bg-primary text-primary-foreground py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 ${
-              isAddingToCart ? "scale-95" : ""
-            }`}
-          >
-            <ShoppingCart className="w-5 h-5" />
-            Add to Cart
-          </button>
+          {hasPrice ? (
+            <button
+              onClick={handleAddToCart}
+              className={`w-full bg-primary text-primary-foreground py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 ${
+                isAddingToCart ? "scale-95" : ""
+              }`}
+            >
+              <ShoppingCart className="w-5 h-5" />
+              Add to Cart
+            </button>
+          ) : (
+            <div className="w-full bg-secondary/50 text-foreground py-3 rounded-xl font-semibold text-center">
+              Visit Store for Pricing
+            </div>
+          )}
         </div>
       </div>
 
-      <OrderModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        item={item}
-        selectedSize={selectedSize}
-      />
+      {hasPrice && selectedSize && (
+        <OrderModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          item={item}
+          selectedSize={selectedSize}
+        />
+      )}
     </>
   );
 };
