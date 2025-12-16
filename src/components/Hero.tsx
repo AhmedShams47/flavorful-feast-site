@@ -40,7 +40,7 @@ const Hero = () => {
         <div className="flex justify-center mt-8 mb-6 animate-fade-in">
           <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-white p-2 shadow-2xl">
             <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
-              <img alt="Pizza House Chef" className="w-full h-full object-contain" src="/lovable-uploads/5884a265-116f-4a45-9a43-ffe5232c98d7.png" />
+              <img src={chefLogo} alt="Pizza House Chef" className="w-full h-full object-contain" />
             </div>
           </div>
         </div>
@@ -49,11 +49,11 @@ const Hero = () => {
         <div className="text-center mb-8 animate-fade-in" style={{
         animationDelay: "0.1s"
       }}>
-          <h1 className="font-script md:text-5xl lg:text-6xl font-serif text-5xl">
-            <span className="drop-shadow-[0_0_10px_rgba(220,38,38,0.5)] text-primary">Take The </span>
-            <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)] font-serif">Taste, </span>
-            <span className="drop-shadow-[0_0_10px_rgba(220,38,38,0.5)] text-primary">Try The </span>
-            <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]">Best</span>
+          <h1 className="font-script text-4xl md:text-5xl lg:text-6xl">
+            <span className="drop-shadow-[0_0_10px_rgba(220,38,38,0.5)] font-serif text-primary">Take The </span>
+            <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]">Taste, </span>
+            <span className="drop-shadow-[0_0_10px_rgba(220,38,38,0.5)] font-serif text-primary">Try The </span>
+            <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)] font-serif">Best</span>
           </h1>
         </div>
 
