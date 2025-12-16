@@ -1,41 +1,40 @@
 import chefLogo from "@/assets/chef-logo.png";
+import { Phone, MapPin, Globe } from "lucide-react";
 
 const Footer = () => {
+  const phoneNumber = "4052851616";
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=Hi%20Pizza%20House!%20I%20would%20like%20to%20place%20an%20order.`;
+
   return (
-    <footer className="bg-card/80 border-t border-border/50 py-12">
+    <footer className="bg-card/80 border-t border-border/50 py-8">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo and Brand */}
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-700 to-red-900 p-1 shadow-lg">
-              <img 
-                src={chefLogo} 
-                alt="Pizza House" 
-                className="w-full h-full object-contain rounded-full bg-red-800" 
-              />
-            </div>
-            <div>
-              <h3 className="font-display text-2xl text-primary tracking-wider">Pizza House</h3>
-              <p className="text-muted-foreground text-sm">Take the Taste, Try the Best</p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Phone - WhatsApp Link */}
+          <div className="flex items-center gap-2">
+            <Phone className="w-4 h-4 text-primary" />
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/80 hover:text-primary transition-colors font-medium"
+            >
+              405-285-1616
+            </a>
+          </div>
+
+          {/* Center - Logo and Brand */}
+          <div className="flex flex-col items-center gap-2">
+            <h3 className="font-display text-2xl text-primary tracking-wider">Pizza House</h3>
+            <div className="flex items-center gap-2">
+              <Globe className="w-4 h-4 text-muted-foreground" />
+              <p className="text-muted-foreground text-sm">www.PizzaHouseUSA.com</p>
             </div>
           </div>
 
-          {/* Links */}
-          <div className="flex gap-8 text-center">
-            <a href="#home" className="text-foreground/80 hover:text-primary transition-colors font-medium">Home</a>
-            <a href="#menu" className="text-foreground/80 hover:text-primary transition-colors font-medium">Menu</a>
-            <a href="#about" className="text-foreground/80 hover:text-primary transition-colors font-medium">About</a>
-            <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors font-medium">Contact</a>
-          </div>
-
-          {/* Copyright */}
-          <div className="text-center md:text-right">
-            <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Pizza House. All rights reserved.
-            </p>
-            <p className="text-muted-foreground text-sm mt-1">
-              www.PizzaHouseUSA.com
-            </p>
+          {/* Location */}
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-primary" />
+            <span className="text-foreground/80 font-medium">Oklahoma City, OK</span>
           </div>
         </div>
       </div>

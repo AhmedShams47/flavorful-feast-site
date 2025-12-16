@@ -8,8 +8,11 @@ const ToppingsSection = () => {
         <h3 className="font-display text-3xl md:text-4xl text-primary mb-4 tracking-wide">
           Pizza House Toppings
         </h3>
-        <p className="text-muted-foreground text-sm max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-sm max-w-2xl mx-auto mb-4">
           Build your perfect pizza with our fresh, quality toppings
+        </p>
+        <p className="text-foreground/80 text-sm max-w-4xl mx-auto leading-relaxed">
+          Pepperoni, Beef, Sausage, Canadian Bacon, Anchovies, Ham, Meatballs, Gyro Meat, Shrimp, Philly Steak, Chicken, Onions, Red Onions, Mushrooms, Bell Peppers, Black Olives, Green Olives, Jalapeños, Pineapple, Tomatoes, Banana Peppers, Spinach, Fresh Garlic, Basil, Extra Cheese, Cheddar Cheese & Double Cheese.
         </p>
       </div>
 
