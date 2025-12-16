@@ -142,35 +142,6 @@ const Hero = () => {
 
         {/* Spacer */}
         <div className="flex-grow min-h-[60px]" />
-
-        {/* Hero Footer */}
-        <div className="w-full bg-gradient-to-r from-red-900 via-red-800 to-red-900 rounded-t-3xl py-6 mt-auto">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-foreground">
-              {/* Phone */}
-              <div className="text-center md:text-left">
-                <p className="text-sm md:text-base text-white/80">
-                  Phone<span className="text-white/50">........................</span>
-                </p>
-              </div>
-
-              {/* Center - Brand */}
-              <div className="text-center">
-                <p className="font-display text-xl md:text-2xl text-primary tracking-wider">Pizza House</p>
-                <p className="text-sm text-white/80">
-                  Web<span className="text-white/50">........................</span>
-                </p>
-              </div>
-
-              {/* Location */}
-              <div className="text-center md:text-right">
-                <p className="text-sm md:text-base text-white/80">
-                  Location<span className="text-white/50">........................</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>;
 };
