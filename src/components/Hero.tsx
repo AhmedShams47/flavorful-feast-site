@@ -1,5 +1,5 @@
 import chefLogo from "@/assets/chef-logo.png";
-import pizzaHero from "@/assets/pizza-hero.jpg";
+import pizzaBackground from "@/assets/pizza-background.jpg";
 
 const productCards = [
   { id: 1, name: "Margherita Pizza", image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400" },
@@ -20,7 +20,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `url(${pizzaHero})`,
+          backgroundImage: `url(${pizzaBackground})`,
         }}
       >
         <div className="absolute inset-0 bg-black/60" />
