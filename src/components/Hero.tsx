@@ -51,7 +51,7 @@ const Hero = () => {
       }}>
           <h1 className="font-script text-4xl md:text-5xl lg:text-6xl">
             <span className="drop-shadow-[0_0_10px_rgba(220,38,38,0.5)] font-serif text-primary">Take The </span>
-            <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]">Taste, </span>
+            <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)] font-serif">Taste, </span>
             <span className="drop-shadow-[0_0_10px_rgba(220,38,38,0.5)] font-serif text-primary">Try The </span>
             <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)] font-serif">Best</span>
           </h1>
