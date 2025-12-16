@@ -68,7 +68,7 @@ const Hero = () => {
               >
                 <div className="relative bg-gradient-to-br from-white/25 via-white/15 to-white/5 backdrop-blur-xl rounded-3xl p-3 shadow-2xl border border-white/40 transition-all duration-500 ease-out group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_30px_rgba(250,204,21,0.3)] group-hover:border-primary/50 group-hover:scale-105 group-hover:-translate-y-2" style={{ transformStyle: 'preserve-3d', transform: 'rotateX(0deg) rotateY(0deg)', transition: 'transform 0.5s ease-out, box-shadow 0.5s ease-out' }}>
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="aspect-square rounded-2xl overflow-hidden shadow-inner relative">
+                  <div className="aspect-square rounded-2xl overflow-hidden relative">
                     <img 
                       src={product.image} 
                       alt={product.name} 
@@ -106,7 +106,7 @@ const Hero = () => {
               >
                 <div className="relative bg-gradient-to-br from-white/25 via-white/15 to-white/5 backdrop-blur-xl rounded-3xl p-3 shadow-2xl border border-white/40 transition-all duration-500 ease-out group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_30px_rgba(250,204,21,0.3)] group-hover:border-primary/50 group-hover:scale-105 group-hover:-translate-y-2" style={{ transformStyle: 'preserve-3d', transform: 'rotateX(0deg) rotateY(0deg)', transition: 'transform 0.5s ease-out, box-shadow 0.5s ease-out' }}>
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="aspect-square rounded-2xl overflow-hidden shadow-inner relative">
+                  <div className="aspect-square rounded-2xl overflow-hidden relative">
                     <img 
                       src={product.image} 
                       alt={product.name} 
