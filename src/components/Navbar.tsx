@@ -1,65 +1,44 @@
 import { useState } from "react";
-import { Menu, X, ShoppingCart } from "lucide-react";
-import chefLogo from "@/assets/chef-logo.png";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
+  { name: "About Us", href: "#about" },
   { name: "Home", href: "#home" },
   { name: "Menu", href: "#menu" },
-  { name: "About Us", href: "#about" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [cartShake, setCartShake] = useState(false);
-
-  const handleOrderClick = () => {
-    setCartShake(true);
-    setTimeout(() => setCartShake(false), 500);
-  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-background/95 to-background/80 backdrop-blur-md border-b border-border/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-red-900 via-red-800 to-red-900 rounded-b-2xl shadow-xl">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-3">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-red-700 to-red-900 p-1 shadow-lg animate-pulse-glow">
-              <img
-                src={chefLogo}
-                alt="Pizza House Chef"
-                className="w-full h-full object-contain rounded-full bg-red-800"
-              />
-            </div>
-            <span className="font-display text-2xl md:text-3xl text-primary tracking-wider">
-              Pizza House
-            </span>
-          </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Desktop Navigation - Centered Links */}
+          <div className="hidden md:flex items-center justify-center flex-1 gap-12">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground/90 hover:text-primary font-medium text-lg transition-colors relative group"
+                className="text-white font-medium text-lg hover:text-primary transition-colors relative group"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
               </a>
             ))}
-            <a
-              href="tel:+14052851616"
-              onClick={handleOrderClick}
-              className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold text-lg hover:scale-105 transition-all glow-primary flex items-center gap-2"
-            >
-              <ShoppingCart className={`w-5 h-5 ${cartShake ? "animate-cart-shake" : ""}`} />
-              ORDER NOW
-            </a>
           </div>
+
+          {/* Order Now Button - Right */}
+          <a
+            href="tel:+14052851616"
+            className="hidden md:flex bg-white text-red-900 px-6 py-2 rounded-full font-bold text-sm hover:scale-105 hover:shadow-lg hover:shadow-white/30 transition-all"
+          >
+            Order Now
+          </a>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-white p-2 ml-auto"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -68,13 +47,13 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-6 animate-fade-in border-t border-border/30">
+          <div className="md:hidden py-6 animate-fade-in border-t border-white/20">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-foreground/90 hover:text-primary font-medium text-lg py-2 transition-colors"
+                  className="text-white hover:text-primary font-medium text-lg py-2 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -82,10 +61,10 @@ const Navbar = () => {
               ))}
               <a
                 href="tel:+14052851616"
-                className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-bold text-center text-lg mt-2 glow-primary"
+                className="bg-white text-red-900 px-6 py-3 rounded-full font-bold text-center text-lg mt-2"
                 onClick={() => setIsOpen(false)}
               >
-                ORDER NOW
+                Order Now
               </a>
             </div>
           </div>
