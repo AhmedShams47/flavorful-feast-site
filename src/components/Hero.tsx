@@ -40,7 +40,7 @@ const Hero = () => {
         <div className="flex justify-center mt-8 mb-6 animate-fade-in">
           <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-white p-2 shadow-2xl">
             <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
-              <img src={chefLogo} alt="Pizza House Chef" className="w-full h-full object-contain" />
+              <img alt="Pizza House Chef" className="w-full h-full object-contain" src="/lovable-uploads/5884a265-116f-4a45-9a43-ffe5232c98d7.png" />
             </div>
           </div>
         </div>
@@ -49,10 +49,10 @@ const Hero = () => {
         <div className="text-center mb-8 animate-fade-in" style={{
         animationDelay: "0.1s"
       }}>
-          <h1 className="font-script text-4xl md:text-5xl lg:text-6xl">
-            <span className="text-red-600 drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]">Take The </span>
-            <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]">Taste, </span>
-            <span className="text-red-600 drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]">Try The </span>
+          <h1 className="font-script md:text-5xl lg:text-6xl font-serif text-5xl">
+            <span className="drop-shadow-[0_0_10px_rgba(220,38,38,0.5)] text-primary">Take The </span>
+            <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)] font-serif">Taste, </span>
+            <span className="drop-shadow-[0_0_10px_rgba(220,38,38,0.5)] text-primary">Try The </span>
             <span className="text-primary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]">Best</span>
           </h1>
         </div>
@@ -60,37 +60,26 @@ const Hero = () => {
         {/* First Row of Product Cards */}
         <div className="container mx-auto px-4 mb-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {productCards.slice(0, 3).map((product, index) => (
-              <div 
-                key={product.id} 
-                style={{ animationDelay: `${0.2 + index * 0.1}s` }} 
-                className="group relative animate-fade-in cursor-pointer"
-              >
+            {productCards.slice(0, 3).map((product, index) => <div key={product.id} style={{
+            animationDelay: `${0.2 + index * 0.1}s`
+          }} className="group relative animate-fade-in cursor-pointer">
                 {/* Animated border container */}
                 <div className="relative p-[3px] rounded-2xl overflow-hidden">
                   {/* Animated gradient border */}
-                  <div 
-                    className="absolute inset-0 rounded-2xl animate-border-slit"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent 0%, transparent 40%, rgba(156,163,175,0.8) 50%, transparent 60%, transparent 100%)',
-                      backgroundSize: '200% 100%',
-                    }}
-                  />
+                  <div className="absolute inset-0 rounded-2xl animate-border-slit" style={{
+                background: 'linear-gradient(90deg, transparent 0%, transparent 40%, rgba(156,163,175,0.8) 50%, transparent 60%, transparent 100%)',
+                backgroundSize: '200% 100%'
+              }} />
                   <div className="absolute inset-0 rounded-2xl bg-gray-500/30" />
                   
                   {/* Card content */}
                   <div className="relative bg-black/40 backdrop-blur-sm rounded-xl overflow-hidden transition-all duration-500 group-hover:scale-[1.02]">
                     <div className="aspect-square overflow-hidden">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
-                      />
+                      <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -106,37 +95,26 @@ const Hero = () => {
         {/* Second Row of Product Cards */}
         <div className="container mx-auto px-4 mt-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {productCards.slice(3, 6).map((product, index) => (
-              <div 
-                key={product.id} 
-                className="group relative animate-fade-in cursor-pointer" 
-                style={{ animationDelay: `${0.6 + index * 0.1}s` }}
-              >
+            {productCards.slice(3, 6).map((product, index) => <div key={product.id} className="group relative animate-fade-in cursor-pointer" style={{
+            animationDelay: `${0.6 + index * 0.1}s`
+          }}>
                 {/* Animated border container */}
                 <div className="relative p-[3px] rounded-2xl overflow-hidden">
                   {/* Animated gradient border */}
-                  <div 
-                    className="absolute inset-0 rounded-2xl animate-border-slit"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent 0%, transparent 40%, rgba(156,163,175,0.8) 50%, transparent 60%, transparent 100%)',
-                      backgroundSize: '200% 100%',
-                    }}
-                  />
+                  <div className="absolute inset-0 rounded-2xl animate-border-slit" style={{
+                background: 'linear-gradient(90deg, transparent 0%, transparent 40%, rgba(156,163,175,0.8) 50%, transparent 60%, transparent 100%)',
+                backgroundSize: '200% 100%'
+              }} />
                   <div className="absolute inset-0 rounded-2xl bg-gray-500/30" />
                   
                   {/* Card content */}
                   <div className="relative bg-black/40 backdrop-blur-sm rounded-xl overflow-hidden transition-all duration-500 group-hover:scale-[1.02]">
                     <div className="aspect-square overflow-hidden">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
-                      />
+                      <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
