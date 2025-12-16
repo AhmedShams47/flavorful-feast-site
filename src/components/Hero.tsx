@@ -73,7 +73,7 @@ const Hero = () => {
         </div>
 
         {/* 100% Real Cheese Strip */}
-        <div className="w-full bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 md:py-4 my-4 animate-fade-in" style={{ animationDelay: "0.5s" }}>
+        <div className="w-full bg-black py-3 md:py-4 my-4 animate-fade-in" style={{ animationDelay: "0.5s" }}>
           <p className="text-center font-display text-2xl md:text-3xl lg:text-4xl text-primary tracking-wider">
             100% Real Cheese
           </p>
