@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import OrderModal from "./OrderModal";
 import { MenuItem } from "@/data/menuData";
+import { Link } from "react-router-dom";
 
 const signatureItems: (MenuItem & { image: string })[] = [
   {
@@ -34,26 +35,29 @@ const SignatureItems = () => {
   const [selectedItem, setSelectedItem] = useState<(MenuItem & { image: string }) | null>(null);
 
   return (
-    <section className="py-16 relative">
+    <section className="py-20 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-10">
-          <p className="font-script text-primary text-2xl mb-2">Customer Favorites</p>
-          <h2 className="font-display text-4xl md:text-5xl text-primary tracking-wider">
+        <div className="text-center mb-12">
+          <p className="font-script text-primary text-3xl mb-2">Customer Favorites</p>
+          <h2 className="font-display text-4xl md:text-5xl text-primary tracking-wider mb-4">
             Signature Items
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Discover our most loved dishes, crafted with passion and the finest ingredients
+          </p>
         </div>
 
         {/* Items Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {signatureItems.map((item, index) => (
             <div
               key={item.name}
-              className="bg-card rounded-2xl overflow-hidden border border-border/50 card-hover group animate-fade-in"
+              className="bg-card rounded-3xl overflow-hidden border border-border/30 card-hover group animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-52 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -62,22 +66,22 @@ const SignatureItems = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                 
                 {/* Price Badge */}
-                <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-4 py-1.5 rounded-full font-bold text-lg shadow-lg">
+                <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-full font-bold text-lg shadow-lg">
                   ${item.prices[0].price.toFixed(2)}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-5">
+              <div className="p-6">
                 <h3 className="text-xl font-display text-primary mb-2 tracking-wide">
                   {item.name}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                <p className="text-muted-foreground text-sm mb-5 line-clamp-2">
                   {item.description}
                 </p>
                 <button
                   onClick={() => setSelectedItem(item)}
-                  className="w-full bg-primary text-primary-foreground py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95"
+                  className="w-full bg-primary text-primary-foreground py-3.5 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] hover:shadow-lg active:scale-95"
                 >
                   <ShoppingCart className="w-5 h-5" />
                   Add to Order
@@ -85,6 +89,16 @@ const SignatureItems = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View Full Menu Button */}
+        <div className="text-center mt-12">
+          <Link
+            to="/menu"
+            className="inline-flex items-center gap-2 bg-secondary text-foreground px-8 py-4 rounded-full font-bold text-lg hover:bg-secondary/80 transition-all duration-300 border border-border/50"
+          >
+            View Full Menu
+          </Link>
         </div>
       </div>
 
