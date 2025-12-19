@@ -27,7 +27,7 @@ const Footer = () => {
             <h3 className="font-display text-2xl text-primary tracking-wider">Pizza House</h3>
             <div className="flex items-center gap-2">
               <Globe className="w-4 h-4 text-muted-foreground" />
-              <p className="text-muted-foreground text-sm">www.PizzaHouseUSA.com</p>
+              <p className="text-muted-foreground text-sm">pizzahouse.pizza</p>
             </div>
           </div>
 
