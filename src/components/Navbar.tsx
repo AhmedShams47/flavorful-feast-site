@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import chefLogo from "@/assets/chef-logo.png";
 
 const navLinks = [
-  { name: "About Us", href: "/about" },
   { name: "Home", href: "/" },
   { name: "Menu", href: "/menu" },
+  { name: "LA Tropicano", href: "/ice-creams" },
+  { name: "Tacos", href: "/tacos" },
+  { name: "About Us", href: "/about" },
 ];
 
 const Navbar = () => {
@@ -13,17 +16,27 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#961818] to-black">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#8B1E1E] via-[#6B1515] to-[#1a0808]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Desktop Navigation - Centered Links */}
-          <div className="hidden md:flex items-center justify-center flex-1 gap-16">
+          {/* Logo - Left */}
+          <Link to="/" className="flex items-center gap-3">
+            <div className="w-14 h-14 rounded-full bg-foreground p-1 shadow-lg animate-pulse-glow">
+              <img src={chefLogo} alt="Pizza House" className="w-full h-full object-contain rounded-full" />
+            </div>
+            <span className="font-display text-xl md:text-2xl text-primary hidden sm:block">Pizza House</span>
+          </Link>
+
+          {/* Desktop Navigation - Center */}
+          <div className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className={`relative px-6 py-2 text-white font-medium text-lg transition-all duration-300 rounded-full border border-white/30 hover:border-white/60 hover:bg-white/10 ${
-                  location.pathname === link.href ? "border-white/60 bg-white/10" : ""
+                className={`px-5 py-2.5 text-foreground font-semibold text-base transition-all duration-300 rounded-full hover:bg-foreground/10 ${
+                  location.pathname === link.href 
+                    ? "bg-foreground/10 text-primary" 
+                    : ""
                 }`}
               >
                 {link.name}
@@ -34,15 +47,16 @@ const Navbar = () => {
           {/* Order Now Button - Right */}
           <Link
             to="/menu"
-            className="hidden md:flex bg-white text-red-900 px-8 py-2.5 rounded-full font-bold text-sm hover:scale-105 hover:shadow-lg hover:shadow-white/30 transition-all"
+            className="hidden lg:flex bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold text-base hover:scale-105 transition-all duration-300 glow-btn"
           >
             Order Now
           </Link>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white p-2 ml-auto"
+            className="lg:hidden text-foreground p-2"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
@@ -50,14 +64,16 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-6 animate-fade-in border-t border-white/20">
-            <div className="flex flex-col gap-4">
+          <div className="lg:hidden py-6 animate-fade-in border-t border-foreground/20">
+            <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={`text-white font-medium text-lg py-3 px-6 rounded-full border border-white/30 text-center transition-all ${
-                    location.pathname === link.href ? "border-white/60 bg-white/10" : ""
+                  className={`text-foreground font-semibold text-lg py-3 px-6 rounded-full text-center transition-all ${
+                    location.pathname === link.href 
+                      ? "bg-foreground/10 text-primary" 
+                      : "hover:bg-foreground/5"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -66,7 +82,7 @@ const Navbar = () => {
               ))}
               <Link
                 to="/menu"
-                className="bg-white text-red-900 px-6 py-3 rounded-full font-bold text-center text-lg mt-2"
+                className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-bold text-center text-lg mt-2 glow-btn"
                 onClick={() => setIsOpen(false)}
               >
                 Order Now
