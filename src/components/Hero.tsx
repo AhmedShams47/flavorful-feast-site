@@ -37,8 +37,8 @@ const Hero = () => {
         <div className="container mx-auto px-4 flex-1 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
           {/* Left Side - Text & Buttons */}
           <div className="text-center lg:text-left lg:w-1/2 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-4 leading-tight">
-              <span className="text-primary drop-shadow-[0_0_20px_hsl(45,100%,50%,0.5)]">Pizza House</span>
+            <h1 className="font-display text-6xl md:text-8xl lg:text-9xl mb-4 leading-tight">
+              <span className="text-primary font-bold drop-shadow-[0_0_30px_hsl(45,100%,50%,0.6)]">𝑷𝒊𝒛𝒛𝒂 𝑯𝒐𝒖𝒔𝒆</span>
             </h1>
             <p className="text-foreground/80 text-lg md:text-xl mb-8 max-w-lg mx-auto lg:mx-0">
               Authentic Italian flavors with 100% real cheese, fresh ingredients, and recipes perfected over generations.
