@@ -23,7 +23,7 @@ const Hero = () => {
         <div className="flex justify-center mt-8 mb-8 animate-fade-in">
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-primary/30 blur-2xl scale-150" />
-            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-2xl animate-pulse-glow">
+            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-2xl animate-pulse-glow ring-4 ring-primary/80">
               <img 
                 src={pizzaHouseLogo} 
                 alt="Pizza House" 

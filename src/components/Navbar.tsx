@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo - Left */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg animate-pulse-glow">
+            <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg animate-pulse-glow ring-2 ring-primary/80">
               <img src={pizzaHouseLogo} alt="Pizza House" className="w-full h-full object-cover" />
             </div>
             <span className="font-display text-xl md:text-2xl text-primary hidden sm:block">Pizza House</span>
