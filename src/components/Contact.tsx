@@ -26,9 +26,9 @@ const Contact = () => {
             <p className="text-foreground/80 mb-2">
               4908 NW 23rd St, OKC, OK 73127
             </p>
-            <a href="tel:+14052851616" className="text-primary hover:text-primary/80 transition-colors text-xl font-bold flex items-center gap-2 mb-2">
+            <a href="tel:+14059437727" className="text-primary hover:text-primary/80 transition-colors text-xl font-bold flex items-center gap-2 mb-2">
               <Phone className="w-5 h-5" />
-              405-285-1616
+              405-943-7727
             </a>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Clock className="w-4 h-4" />
@@ -49,9 +49,9 @@ const Contact = () => {
             <p className="text-foreground/80 mb-2">
               19417 N. Portland Ave, Edmond, OK 73012
             </p>
-            <a href="tel:+14059437727" className="text-primary hover:text-primary/80 transition-colors text-xl font-bold flex items-center gap-2 mb-2">
+            <a href="tel:+14052851616" className="text-primary hover:text-primary/80 transition-colors text-xl font-bold flex items-center gap-2 mb-2">
               <Phone className="w-5 h-5" />
-              405-943-7727
+              405-285-1616
             </a>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Clock className="w-4 h-4" />
