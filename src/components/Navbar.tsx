@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import chefLogo from "@/assets/chef-logo.png";
+import pizzaHouseLogo from "@/assets/pizza-house-logo.jpg";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -21,8 +21,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo - Left */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-14 h-14 rounded-full bg-foreground p-1 shadow-lg animate-pulse-glow">
-              <img src={chefLogo} alt="Pizza House" className="w-full h-full object-contain rounded-full" />
+            <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg animate-pulse-glow">
+              <img src={pizzaHouseLogo} alt="Pizza House" className="w-full h-full object-cover" />
             </div>
             <span className="font-display text-xl md:text-2xl text-primary hidden sm:block">Pizza House</span>
           </Link>

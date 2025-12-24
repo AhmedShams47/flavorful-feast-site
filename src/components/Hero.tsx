@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import chefLogo from "@/assets/chef-logo.png";
+import pizzaHouseLogo from "@/assets/pizza-house-logo.jpg";
 import pizzaBackground from "@/assets/pizza-background.jpg";
 import FloatingToppings from "./FloatingToppings";
 
@@ -23,11 +23,11 @@ const Hero = () => {
         <div className="flex justify-center mt-8 mb-8 animate-fade-in">
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-primary/30 blur-2xl scale-150" />
-            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-foreground p-2 shadow-2xl animate-pulse-glow">
+            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-2xl animate-pulse-glow">
               <img 
-                src={chefLogo} 
-                alt="Pizza House Chef" 
-                className="w-full h-full object-contain rounded-full" 
+                src={pizzaHouseLogo} 
+                alt="Pizza House" 
+                className="w-full h-full object-cover" 
               />
             </div>
           </div>
@@ -38,10 +38,7 @@ const Hero = () => {
           {/* Left Side - Text & Buttons */}
           <div className="text-center lg:text-left lg:w-1/2 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-4 leading-tight">
-              <span className="text-primary drop-shadow-[0_0_20px_hsl(45,100%,50%,0.5)]">Take The Taste,</span>
-              <br />
-              <span className="text-foreground">Try The </span>
-              <span className="text-primary drop-shadow-[0_0_20px_hsl(45,100%,50%,0.5)]">Best</span>
+              <span className="text-primary drop-shadow-[0_0_20px_hsl(45,100%,50%,0.5)]">Pizza House</span>
             </h1>
             <p className="text-foreground/80 text-lg md:text-xl mb-8 max-w-lg mx-auto lg:mx-0">
               Authentic Italian flavors with 100% real cheese, fresh ingredients, and recipes perfected over generations.
