@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import pizzaHouseLogo from "@/assets/pizza-house-logo.jpg";
+import pizzaHouseLogo from "@/assets/pizza-house-logo.png";
 
 const navLinks = [
   { name: "Home", href: "/" },
