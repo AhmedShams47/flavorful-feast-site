@@ -1,4 +1,4 @@
-import chefLogo from "@/assets/chef-logo.png";
+import pizzaHouseLogo from "@/assets/pizza-house-logo.png";
 import { Phone, MapPin, Globe } from "lucide-react";
 
 const Footer = () => {
@@ -23,7 +23,10 @@ const Footer = () => {
           </div>
 
           {/* Center - Logo and Brand */}
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-primary/80 shadow-lg">
+              <img src={pizzaHouseLogo} alt="Pizza House" className="w-full h-full object-cover" />
+            </div>
             <h3 className="font-display text-2xl text-primary tracking-wider">Pizza House</h3>
             <div className="flex items-center gap-2">
               <Globe className="w-4 h-4 text-muted-foreground" />

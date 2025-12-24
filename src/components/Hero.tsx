@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import pizzaHouseLogo from "@/assets/pizza-house-logo.jpg";
+import pizzaHouseLogo from "@/assets/pizza-house-logo.png";
 import pizzaBackground from "@/assets/pizza-background.jpg";
 import FloatingToppings from "./FloatingToppings";
 
