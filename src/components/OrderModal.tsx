@@ -11,6 +11,10 @@ interface OrderModalProps {
 }
 
 const OrderModal = ({ isOpen, onClose, item, selectedSize }: OrderModalProps) => {
+  const email = "pizzahouse528@gmail.com";
+  const whatsappNumber = "14059437727";
+  const phoneNumber = "+14059437727";
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -47,13 +51,13 @@ ${formData.notes ? `- Special Instructions: ${formData.notes}` : ""}
       return;
     }
 
-    const subject = encodeURIComponent(`New Order: ${item.name}`);
+    const subject = encodeURIComponent(`Pizza Order - ${item.name}`);
     const body = encodeURIComponent(orderDetails);
-    window.open(`mailto:your-email@example.com?subject=${subject}&body=${body}`, "_blank");
+    window.open(`mailto:${email}?subject=${subject}&body=${body}`, "_blank");
     
     toast({
       title: "Opening Email",
-      description: "Your email app will open with the order details",
+      description: "Your email app will open with the order details. For faster service, message us on WhatsApp!",
     });
   };
 
@@ -68,8 +72,7 @@ ${formData.notes ? `- Special Instructions: ${formData.notes}` : ""}
     }
 
     const message = encodeURIComponent(`🍕 *New Order from Pizza House*\n\n${orderDetails}`);
-    // Replace with your WhatsApp number (include country code without +)
-    window.open(`https://wa.me/1234567890?text=${message}`, "_blank");
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
     
     toast({
       title: "Opening WhatsApp",
@@ -78,7 +81,7 @@ ${formData.notes ? `- Special Instructions: ${formData.notes}` : ""}
   };
 
   const handleCallOrder = () => {
-    window.open("tel:+1234567890", "_blank");
+    window.open(`tel:${phoneNumber}`, "_blank");
   };
 
   return (
@@ -220,6 +223,10 @@ ${formData.notes ? `- Special Instructions: ${formData.notes}` : ""}
               <Phone className="w-5 h-5" />
               Call to Order
             </button>
+
+            <p className="text-center text-sm text-muted-foreground pt-2">
+              Prefer to call? <a href={`tel:${phoneNumber}`} className="text-primary hover:underline font-medium">+1 405 943 7727</a>
+            </p>
           </div>
         </div>
       </div>
