@@ -1,15 +1,67 @@
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, Mail, MessageCircle } from "lucide-react";
+
 const Contact = () => {
-  return <section id="contact" className="py-20">
+  const email = "pizzahouse528@gmail.com";
+  const whatsappLink = "https://wa.me/14059437727";
+  const phoneNumber = "+14059437727";
+
+  return (
+    <section id="contact" className="py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <p className="font-script text-primary text-2xl mb-2">Get in Touch</p>
           <h2 className="font-display text-4xl md:text-5xl text-primary tracking-wider mb-4">
-            Visit Us
+            Contact Us
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Stop by or give us a call to place your order
+          <p className="text-muted-foreground text-lg mb-6">
+            Reach out via email, WhatsApp, or phone to place your order
           </p>
+          
+          {/* Primary Contact Info */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <a 
+              href={`mailto:${email}`}
+              className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors font-medium"
+            >
+              <Mail className="w-5 h-5 text-primary" />
+              {email}
+            </a>
+            <span className="hidden sm:inline text-muted-foreground">|</span>
+            <a 
+              href={`tel:${phoneNumber}`}
+              className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors font-medium"
+            >
+              <Phone className="w-5 h-5 text-primary" />
+              +1 405 943 7727
+            </a>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <a 
+              href={`mailto:${email}`}
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all glow-primary"
+            >
+              <Mail className="w-5 h-5" />
+              Email Us
+            </a>
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all shadow-lg hover:shadow-green-500/30"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Chat on WhatsApp
+            </a>
+            <a 
+              href={`tel:${phoneNumber}`}
+              className="inline-flex items-center gap-2 bg-foreground/10 text-foreground border-2 border-foreground/30 px-8 py-4 rounded-full font-bold text-lg hover:bg-foreground/20 transition-all"
+            >
+              <Phone className="w-5 h-5" />
+              Call Now
+            </a>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -59,14 +111,9 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
-        <div className="text-center mt-12">
-          <a href="tel:+14052851616" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-10 py-4 rounded-full font-bold text-xl hover:scale-105 transition-all glow-primary">
-            <Phone className="w-5 h-5" />
-            Call to Order Now
-          </a>
-        </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Contact;
