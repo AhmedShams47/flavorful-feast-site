@@ -1,17 +1,17 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { iceCreamItems } from "@/data/menuData";
-import tropicalBackground from "@/assets/tropical-background.png";
+import storefrontBackground from "@/assets/pizza-house-storefront.png";
 
 const IceCreamsPage = () => {
   return (
     <div className="min-h-screen relative">
-      {/* Tropical Background */}
+      {/* Storefront Background */}
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${tropicalBackground})` }}
+        style={{ backgroundImage: `url(${storefrontBackground})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/50 to-white/60" />
       </div>
 
       <div className="relative z-10">
