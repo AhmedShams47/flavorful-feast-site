@@ -11,7 +11,7 @@ const IceCreamsPage = () => {
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${storefrontBackground})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/50 to-white/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
       </div>
 
       <div className="relative z-10">
