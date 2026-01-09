@@ -1,13 +1,23 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { tacoMenuItems } from "@/data/menuData";
+import storefrontBackground from "@/assets/pizza-house-storefront.png";
 
 const TacosPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-secondary/20 to-background">
-      <Navbar />
-      
-      <div className="pt-28 pb-16">
+    <div className="min-h-screen relative">
+      {/* Storefront Background */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${storefrontBackground})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
+      </div>
+
+      <div className="relative z-10">
+        <Navbar />
+        
+        <div className="pt-28 pb-16">
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-12">
@@ -42,6 +52,7 @@ const TacosPage = () => {
       </div>
 
       <Footer />
+      </div>
     </div>
   );
 };
