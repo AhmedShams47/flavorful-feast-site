@@ -2,15 +2,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { tacoMenuItems } from "@/data/menuData";
 import storefrontBackground from "@/assets/pizza-house-storefront.png";
-
 const TacosPage = () => {
-  return (
-    <div className="min-h-screen relative">
+  return <div className="min-h-screen relative">
       {/* Storefront Background */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${storefrontBackground})` }}
-      >
+      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${storefrontBackground})`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
       </div>
 
@@ -27,38 +24,28 @@ const TacosPage = () => {
             <p className="text-white/80 text-lg">Authentic Mexican Flavors</p>
             <div className="mt-6 inline-block bg-primary/90 backdrop-blur-sm rounded-2xl px-6 py-3 shadow-lg">
               <p className="text-lg font-bold text-primary-foreground">🌮 Lunch Special</p>
-              <p className="text-primary-foreground/90 text-sm">We Served Tacos In Admins Locations</p>
+              <p className="text-primary-foreground/90 text-sm">We Served Tacos Only In Admins Locations</p>
             </div>
           </div>
 
           {/* Menu Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {tacoMenuItems.map((item, index) => (
-              <div
-                key={item.name}
-                className="bg-card rounded-3xl p-6 border border-border/30 card-hover animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
+            {tacoMenuItems.map((item, index) => <div key={item.name} className="bg-card rounded-3xl p-6 border border-border/30 card-hover animate-fade-in" style={{
+              animationDelay: `${index * 100}ms`
+            }}>
                 <h3 className="font-display text-2xl text-primary mb-2">{item.name}</h3>
-                {item.description && (
-                  <p className="text-muted-foreground text-sm mb-2">{item.description}</p>
-                )}
-                {item.subtitle && (
-                  <p className="text-accent text-sm font-medium italic mb-3">{item.subtitle}</p>
-                )}
+                {item.description && <p className="text-muted-foreground text-sm mb-2">{item.description}</p>}
+                {item.subtitle && <p className="text-accent text-sm font-medium italic mb-3">{item.subtitle}</p>}
                 <p className="text-3xl font-display text-primary">
                   ${item.prices[0].price.toFixed(2)}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </div>
 
       <Footer />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default TacosPage;
