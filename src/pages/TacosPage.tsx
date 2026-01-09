@@ -27,7 +27,7 @@ const TacosPage = () => {
             <p className="text-white/80 text-lg">Authentic Mexican Flavors</p>
             <div className="mt-6 inline-block bg-primary/90 backdrop-blur-sm rounded-2xl px-6 py-3 shadow-lg">
               <p className="text-lg font-bold text-primary-foreground">🌮 Lunch Special</p>
-              <p className="text-primary-foreground/90 text-sm">Any 2 Tacos + Drink for $8.99</p>
+              <p className="text-primary-foreground/90 text-sm">We Served Tacos In Admins Locations</p>
             </div>
           </div>
 
