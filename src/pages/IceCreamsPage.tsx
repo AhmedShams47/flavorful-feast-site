@@ -21,11 +21,11 @@ const IceCreamsPage = () => {
           <div className="container mx-auto px-4">
             {/* Header */}
             <div className="text-center mb-12">
-              <h1 className="font-display text-5xl md:text-6xl text-pink-500 mb-4">
+              <h1 className="font-display text-5xl md:text-6xl text-pink-400 mb-4">
                 LA Tropicano
               </h1>
-              <p className="text-xl text-gray-600">Ice Creams & Sweet Treats</p>
-              <p className="text-lg text-pink-400 mt-4 font-medium">
+              <p className="text-xl text-white/90">Ice Creams & Sweet Treats</p>
+              <p className="text-lg text-pink-300 mt-4 font-medium">
                 Visit us in store for pricing!
               </p>
             </div>
@@ -35,12 +35,12 @@ const IceCreamsPage = () => {
               {iceCreamItems.map((item, index) => (
                 <div
                   key={item.name}
-                  className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-lg border border-pink-200 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in"
+                  className="bg-black/40 backdrop-blur-sm rounded-3xl p-6 shadow-lg border border-pink-400/30 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <div className="text-4xl mb-3">🍦</div>
-                  <h3 className="font-display text-xl text-pink-600 mb-2">{item.name}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
+                  <h3 className="font-display text-xl text-pink-400 mb-2">{item.name}</h3>
+                  <p className="text-white/80 text-sm">{item.description}</p>
                 </div>
               ))}
             </div>
