@@ -81,7 +81,7 @@ export const menuData: MenuCategory[] = [
     items: [
       { name: "Gyro", description: "Gyro Meat, Cucumber Sauce, Onions, Lettuce, Tomatoes on Pita Bread", prices: [{ size: "", price: 8.99 }] },
       { name: "Chicken Gyro", description: "Chicken Breast Strip, Cucumber Sauce, Onions, Lettuce, Tomatoes on Pita Bread", prices: [{ size: "", price: 8.99 }] },
-      { name: "Jumbo Double Cheeseburger", description: "Double Meat, Double Cheese, Mayo, Onion, Lettuce, Tomatoes and Mustard", prices: [{ size: "", price: 8.99 }] },
+      { name: "Jumbo Double Cheeseburger", description: "Double Meat, Double Cheese, Mayo, Onion, Lettuce, Tomatoes and Mustard & Ketchup", prices: [{ size: "", price: 8.99 }] },
       { name: "Fried Chicken Sandwich", description: "Crispy fried chicken breast with lettuce, tomato, and mayo", prices: [{ size: "", price: 8.99 }] },
       { name: "Philly Steak Sandwich", description: "Philly Meat, Onions, Mushrooms, Green Pepper, Provolone-American Cheese", prices: [{ size: "", price: 8.99 }] },
       { name: "Chicken Philly Steak Sandwich", description: "Chicken Philly, Onions, Mushrooms, Green Pepper, and Cheese", prices: [{ size: "", price: 8.99 }] },
